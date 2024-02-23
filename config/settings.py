@@ -23,8 +23,6 @@ SECRET_KEY = os.getenv('SECRET_KEY', "django-insecure-dppz$c%h%dlkfpnrhc6zot3vg2
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "1")
-# TODO Передать в Dockerfile ALLOWED_HOSTS = 0.0.0.0, Traceback Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need
-#  to add '0.0.0.0' to ALLOWED_HOSTS.
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1").split(",")
 INTERNAL_IPS = os.getenv("INTERNAL_IPS", "127.0.0.1").split(",")
 
@@ -39,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "debug_toolbar",
 
-    # "apps.account.apps.AccountConfig",
+    "apps.account.apps.AccountConfig",
 ]
 
 MIDDLEWARE = [
