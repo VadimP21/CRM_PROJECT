@@ -7,6 +7,8 @@ from pathlib import Path
 from django.urls import reverse_lazy
 from dotenv import find_dotenv, load_dotenv
 
+import apps.core.apps
+
 if not find_dotenv():
     exit('Переменные окружения не загружены т.к отсутствует файл .env')
 else:
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
 
     "apps.account.apps.AccountConfig",
+    "apps.core.apps.CoreConfig",
 ]
 
 MIDDLEWARE = [
