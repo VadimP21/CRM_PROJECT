@@ -15,9 +15,7 @@ class UserProfileInLine(admin.TabularInline):
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
-    inlines = [
-        UserProfileInLine
-    ]
+    inlines = [UserProfileInLine]
     add_fieldsets = [
         (
             None,
@@ -31,11 +29,7 @@ class UserAdmin(UserAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = (
-        "pk",
-        "user",
-        "role"
-    )
+    list_display = ("pk", "user", "role")
     ordering = (
         "pk",
         "user",
@@ -57,8 +51,4 @@ class RoleAdmin(admin.ModelAdmin):
 
 @admin.register(RolePermission)
 class RolePermissionAdmin(admin.ModelAdmin):
-    list_display = (
-        "pk",
-        "role",
-        "permission"
-    )
+    list_display = ("pk", "role", "permission")

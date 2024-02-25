@@ -6,9 +6,12 @@ from django.db.models import BooleanField, Model, PositiveIntegerField
 
 
 class SiteSettings(Model):
-    cache_active = BooleanField(default=False,)
+    cache_active = BooleanField(
+        default=False,
+    )
     cache_time = PositiveIntegerField(
-        default=60 * 60 * 24, )  # sec*min*hor
+        default=60 * 60 * 24,
+    )  # sec*min*hor
 
     def save(self, *args, **kwargs):
         self.__class__.objects.exclude(id=self.id).delete()

@@ -1,9 +1,8 @@
-"""
-Конфигурация приложения accounts
-"""
+"""Конфигурация приложения accounts"""
+
 from django.apps import AppConfig
 
 
 class AccountConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.account'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "apps.account"

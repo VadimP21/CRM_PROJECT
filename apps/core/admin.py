@@ -1,4 +1,5 @@
 """Модуль для админ панели приложения Core"""
+
 from django.contrib.admin import ModelAdmin, action, register
 from django.core.cache import cache
 

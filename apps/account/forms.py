@@ -1,4 +1,5 @@
 """Модуль конструктора формам для приложения Account"""
+
 from django.contrib.auth.forms import AuthenticationForm
 
 

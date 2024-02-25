@@ -1,4 +1,5 @@
 """Точки входа для приложения Accounts"""
+
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, reverse_lazy
 
@@ -13,7 +14,6 @@ urlpatterns = [
             authentication_form=LoginForm,
             template_name="account/login.html",
             redirect_authenticated_user=True,
-
         ),
         name="login",
     ),

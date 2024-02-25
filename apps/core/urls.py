@@ -1,6 +1,5 @@
 """Точки входа для приложения Core"""
 
-
 from django.urls import path
 
 from apps.core.view import IndexView
