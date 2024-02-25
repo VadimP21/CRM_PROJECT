@@ -1,8 +1,8 @@
 """Модуль контроллер для приложения products"""
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy, reverse
 from django.views.generic import (
     CreateView,
     DetailView,
@@ -22,7 +22,14 @@ class ProductCreateView(CreateView):
         "description",
         "is_active",
     )
-    success_url = reverse_lazy("products:product_read")
+    template_name_suffix = "_create"
+    success_url = reverse_lazy("product:product_read")
+
+    def get_success_url(self):
+        return reverse(
+            "product:product_read",
+            kwargs={"pk": self.object.pk},
+        )
 
 
 class ProductReadView(DetailView):
@@ -43,7 +50,7 @@ class ProductUpdateView(UpdateView):
         "description",
         "is_active",
     )
-    success_url = reverse_lazy("products:product_read")
+    success_url = reverse_lazy("product:product_read")
     # template_name_suffix = "_update_form"
 
 
@@ -55,6 +62,11 @@ class ProductDeleteView(DeleteView):
         self.object.is_active = False
         self.object.save()
         return HttpResponseRedirect(success_url)
+
+    def get_success_url(self):
+        return reverse(
+            "product:products_list",
+        )
 
 
 class ProductListView(ListView):

@@ -1,0 +1,19 @@
+{% extends 'core/_base.html' %}
+
+
+{% block content %}
+  <h1>Are you sure you want to archive {{ object.name }}?</h1>
+  <br>
+  <div>
+    <a href="{% url 'product:product_read' pk=object.pk %}"
+    >Back to product</a>
+  </div>
+  <br>
+  <div>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Archive</button>
+    </form>
+  </div>
+{% endblock %}
