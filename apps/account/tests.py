@@ -1,3 +1,3 @@
+"""Модуль для написания тестов приложения account"""
 from django.test import TestCase
 
-# Create your tests here.
