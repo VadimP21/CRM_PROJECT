@@ -4,6 +4,7 @@ from django.db.models import Model, CharField, TextField, DecimalField, BooleanF
 
 
 class Product(Model):
+    #  TODO сделать primary_key is name
     name = CharField(max_length=128, verbose_name="Название")
     price = DecimalField(max_digits=16, decimal_places=2, verbose_name="Стоимость")
     description = TextField(verbose_name="Описание")

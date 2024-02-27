@@ -13,8 +13,13 @@
                 <a href="/product/{{ product.pk }}" class="text-decoration-none link-dark">{{ product.name }}</a>
                 <a href="/product/{{ product.pk }}/archive/" class="btn btn-danger">Удалить</a>
             </li>
+            {% empty %}
+            <p>Нет активных услуг</p>
             {% endfor %}
         </ul>
     </div>
+
 </div>
+<a href="{%url 'core:index'%}">На главную</a>
+
 {% endblock %}

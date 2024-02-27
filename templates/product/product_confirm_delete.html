@@ -2,18 +2,20 @@
 
 
 {% block content %}
-  <h1>Are you sure you want to archive {{ object.name }}?</h1>
-  <br>
-  <div>
+<h2 class="fw-bold">Действительно хотите удалить услугу: {{ object.name }}?</h2>
+<div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
+    <div class="col">{{ object.name }}</div>
+    <div class="col">{{ object.description }}</div>
+    <div class="col">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Удалить услугу</button>
+        </form>
+    </div>
+</div>
+<div class="col">
     <a href="{% url 'product:product_read' pk=object.pk %}"
-    >Back to product</a>
-  </div>
-  <br>
-  <div>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Archive</button>
-    </form>
-  </div>
+    >К Услуге</a>
+</div>
 {% endblock %}

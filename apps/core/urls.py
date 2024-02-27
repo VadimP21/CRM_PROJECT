@@ -8,7 +8,7 @@ app_name = "core"
 
 urlpatterns = [
     path(
-        "index/",
+        "",
         IndexView.as_view(),
         name="index",
     ),

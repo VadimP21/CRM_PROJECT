@@ -14,6 +14,7 @@ from django.views.generic import (
 from apps.product.models import Product
 
 
+# TODO добавить разрешения только для Маркетолога и Менеджера
 class ProductCreateView(CreateView):
     model = Product
     fields = (
