@@ -51,7 +51,13 @@ class ProductUpdateView(UpdateView):
         "is_active",
     )
     success_url = reverse_lazy("product:product_read")
-    # template_name_suffix = "_update_form"
+    template_name_suffix = "_update"
+
+    def get_success_url(self):
+        return reverse(
+            "product:product_read",
+            kwargs={"pk": self.object.pk},
+        )
 
 
 class ProductDeleteView(DeleteView):
