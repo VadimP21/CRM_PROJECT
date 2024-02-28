@@ -2,10 +2,10 @@
 
 
 {% block content %}
-<h2 class="fw-bold">Действительно хотите удалить услугу: {{ object.name }}?</h2>
+<h2 class="fw-bold">Действительно хотите удалить услугу: {{ product.name }}?</h2>
 <div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
-    <div class="col">{{ object.name }}</div>
-    <div class="col">{{ object.description }}</div>
+    <div class="col">{{ product.name }}</div>
+    <div class="col">{{ product.description }}</div>
     <div class="col">
         <form method="post">
             {% csrf_token %}
@@ -15,7 +15,11 @@
     </div>
 </div>
 <div class="col">
-    <a href="{% url 'product:product_read' pk=object.pk %}"
+    <a href="{% url 'product:product_read' pk=product.pk %}" class="btn btn-primary"
     >К Услуге</a>
+</div>
+<div class="col">
+    <a href="{% url 'product:products_list' %}"  class="btn btn-primary"
+    >К списку услуг</a>
 </div>
 {% endblock %}

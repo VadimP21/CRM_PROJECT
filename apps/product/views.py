@@ -35,6 +35,7 @@ class ProductCreateView(CreateView):
 
 class ProductReadView(DetailView):
     model = Product
+    context_object_name = "product"
     fields = (
         "name",
         "price",
@@ -63,6 +64,7 @@ class ProductUpdateView(UpdateView):
 
 class ProductDeleteView(DeleteView):
     model = Product
+    context_object_name = "product"
 
     def form_valid(self, form):
         success_url = self.get_success_url()

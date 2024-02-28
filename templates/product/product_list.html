@@ -10,8 +10,8 @@
         <ul class="list-group">
             {% for product in products %}
             <li class="list-group-item list-group-item-light d-flex justify-content-between">
-                <a href="/product/{{ product.pk }}" class="text-decoration-none link-dark">{{ product.name }}</a>
-                <a href="/product/{{ product.pk }}/archive/" class="btn btn-danger">Удалить</a>
+                <a href="{% url 'product:product_read' pk=product.pk %}" class="text-decoration-none link-dark">{{ product.name }}</a>
+                <a href="{% url 'product:product_delete' pk=product.pk %}" class="btn btn-danger">Удалить</a>
             </li>
             {% empty %}
             <p>Нет активных услуг</p>
@@ -20,6 +20,7 @@
     </div>
 
 </div>
-<a href="{%url 'core:index'%}">На главную</a>
+
+<a href="{%url 'core:index'%}" class="btn btn-primary">На главную</a>
 
 {% endblock %}

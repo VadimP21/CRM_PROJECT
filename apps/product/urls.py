@@ -15,7 +15,7 @@ app_name = "product"
 urlpatterns = [
     path("", ProductListView.as_view(), name="products_list"),
     path("create/", ProductCreateView.as_view(), name="product_create"),
-    path("<int:pk>/", ProductReadView.as_view(), name="product_read"),
-    path("<int:pk>/update/", ProductUpdateView.as_view(), name="product_update"),
-    path("<int:pk>/archive/", ProductDeleteView.as_view(), name="product_delete"),
+    path("<slug:pk>/", ProductReadView.as_view(), name="product_read"),
+    path("<slug:pk>/update/", ProductUpdateView.as_view(), name="product_update"),
+    path("<slug:pk>/archive/", ProductDeleteView.as_view(), name="product_delete"),
 ]
