@@ -7,9 +7,10 @@ from django.views import View
 from apps.core.models import SiteSettings
 from apps.product.models import Product
 from config import settings
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class IndexView(View):
+class IndexView(LoginRequiredMixin, View):
     def get_products_count(self, cache_time):
         products_count = cache.get(settings.PRODUCTS_SESSION_ID)
         if not products_count:
