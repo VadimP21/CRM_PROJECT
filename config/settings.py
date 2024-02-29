@@ -33,7 +33,7 @@ INTERNAL_IPS = os.getenv("INTERNAL_IPS", "127.0.0.1").split(",")
 
 # Sessions ids
 PRODUCTS_SESSION_ID = "product"
-
+ADVERTISEMENT_SESSION_ID = "advertisement"
 # Application definition
 
 INSTALLED_APPS = [
@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     "apps.core.apps.CoreConfig",
     "apps.product.apps.ProductConfig",
     "apps.ads.apps.AdsConfig",
-
 ]
 
 MIDDLEWARE = [
