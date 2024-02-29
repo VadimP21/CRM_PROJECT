@@ -18,7 +18,7 @@
         <div class="card border-light shadow" style="background: #eee">
             <div class="card-body">
                 <h5 class="card-title fw-bold">
-                    <a href="/ads/" class="link-dark text-decoration-none">Рекламных компаний</a>
+                    <a href="{% url 'advertisement:advertisement_list' %}" class="link-dark text-decoration-none">Рекламных компаний</a>
                 </h5>
                 <i class="fas fa-ad float-end"></i>
                 <p class="card-text fw-bold fs-1">{{ advertisements_count }}</p>
