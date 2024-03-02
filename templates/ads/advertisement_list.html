@@ -11,11 +11,13 @@
         <ul class="list-group">
             {% for advertisement in advertisements %}
             <li class="list-group-item list-group-item-light d-flex justify-content-between">
-                <a href="{% url 'advertisement:advertisement_read' %}" class="text-decoration-none link-dark">{{ advertisement.name }}</a>
-                <a href="{% url 'advertisement:advertisement_delete' %}" class="btn btn-danger">Удалить</a>
+                <a href="{% url 'advertisement:advertisement_read' pk=advertisement.pk %}" class="text-decoration-none link-dark">{{ advertisement.name }}</a>
+                <a href="{% url 'advertisement:advertisement_delete' pk=advertisement.pk %}" class="btn btn-danger">Удалить</a>
             </li>
             {% endfor %}
         </ul>
     </div>
 </div>
+<a href="{%url 'core:index'%}" class="btn btn-primary">На главную</a>
+
 {% endblock %}
