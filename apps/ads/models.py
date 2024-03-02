@@ -13,4 +13,4 @@ class Advertisement(Model):
     is_active = BooleanField(default=1, verbose_name="Активен")
 
     def __str__(self):
-        return f"Advertisement (pk={self.pk}, name={self.name!r})"
+        return f"Advertisement {self.name!r}"

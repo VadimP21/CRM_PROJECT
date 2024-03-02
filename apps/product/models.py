@@ -10,4 +10,4 @@ class Product(Model):
     is_active = BooleanField(default=1, verbose_name="Активен")
 
     def __str__(self):
-        return f"Product(pk={self.pk}, name={self.name!r})"
+        return f"Product {self.name!r}"
