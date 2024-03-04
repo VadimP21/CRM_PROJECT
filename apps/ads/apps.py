@@ -1,4 +1,4 @@
-"""Конфигурация приложения core"""
+"""Конфигурация приложения advertisement"""
 
 from django.apps import AppConfig
 

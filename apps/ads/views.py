@@ -1,4 +1,5 @@
 """Модуль контроллер для приложения ads"""
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse

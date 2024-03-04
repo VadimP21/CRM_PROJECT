@@ -1,4 +1,4 @@
-"""Модуль конструктор форм приложения ads"""
+"""Модуль конструктор форм приложения lead"""
 
 from django import forms
 from apps.ads.models import Advertisement

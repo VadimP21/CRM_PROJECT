@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "apps.core.apps.CoreConfig",
     "apps.product.apps.ProductConfig",
     "apps.ads.apps.AdsConfig",
+    "apps.lead.apps.LeadConfig",
 ]
 
 MIDDLEWARE = [

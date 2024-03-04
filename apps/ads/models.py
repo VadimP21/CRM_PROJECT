@@ -1,6 +1,13 @@
 """Модуль с моделями приложения ads"""
 
-from django.db.models import Model, CharField, ForeignKey, DO_NOTHING, DecimalField, BooleanField
+from django.db.models import (
+    Model,
+    CharField,
+    ForeignKey,
+    DO_NOTHING,
+    DecimalField,
+    BooleanField,
+)
 
 from apps.product.models import Product
 
