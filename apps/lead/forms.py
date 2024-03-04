@@ -1,10 +1,10 @@
 """Модуль конструктор форм приложения lead"""
 
 from django import forms
-from apps.ads.models import Advertisement
+from apps.lead.models import Lead
 
 
-class AdvertisementForm(forms.ModelForm):
+class LeadForm(forms.ModelForm):
     class Meta:
-        model = Advertisement
-        fields = ["name", "product", "channel", "cost", "is_active"]
+        model = Lead
+        fields = ["first_name", "last_name", "phone", "email", "advertisement"]

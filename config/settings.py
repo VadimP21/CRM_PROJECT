@@ -34,6 +34,7 @@ INTERNAL_IPS = os.getenv("INTERNAL_IPS", "127.0.0.1").split(",")
 # Sessions ids
 PRODUCTS_SESSION_ID = "product"
 ADVERTISEMENT_SESSION_ID = "advertisement"
+LEAD_SESSION_ID = "lead"
 # Application definition
 
 INSTALLED_APPS = [

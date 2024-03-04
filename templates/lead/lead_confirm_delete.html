@@ -1,0 +1,26 @@
+{% extends 'core/_base.html' %}
+
+
+{% block content %}
+<h2 class="fw-bold">Действительно хотите удалить лида: {{ lead.first_name }} {{ lead.last_name }}?</h2>
+<div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
+    <p class="card-text">{{ lead.first_name }} {{ lead.last_name }}</p>
+    <p class="card-text">{{ lead.email }}</p>
+    <p class="card-text">{{ lead.advertisement.name }}</p>
+    <div class="col">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Удалить лида</button>
+        </form>
+    </div>
+</div>
+<div class="col">
+    <a href="{% url 'lead:lead_read' pk=lead.pk %}" class="btn btn-primary"
+    >К Услуге</a>
+</div>
+<div class="col">
+    <a href="{% url 'lead:lead_list' %}" class="btn btn-primary"
+    >К списку услуг</a>
+</div>
+{% endblock %}

@@ -10,6 +10,7 @@ from django.db.models import (
     DO_NOTHING,
     UUIDField,
     EmailField,
+    BooleanField,
 )
 
 from apps.ads.models import Advertisement
@@ -20,17 +21,15 @@ class Lead(Model):
     first_name = CharField(max_length=100, verbose_name="Фамилия")
     last_name = CharField(max_length=100, verbose_name="Имя")
     phone = CharField(
-        max_length=18,
+        max_length=12,
         unique=True,
         verbose_name="Телефон",
-        validators=[
-            RegexValidator(
-                r"^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$",
-                message=("Номер телефона должен быть в формате +7 (999) 999-99-99"),
-            )
-        ],
     )
     email = EmailField(unique=True, verbose_name="Email")
     advertisement = ForeignKey(
         Advertisement, verbose_name="Рекламная кампания", on_delete=DO_NOTHING
     )
+    is_active = BooleanField(default=1, verbose_name="Активен")
+
+    def __str__(self):
+        return f"Lead {self.first_name!r} {self.last_name!r}"

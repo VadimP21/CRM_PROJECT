@@ -29,7 +29,7 @@
         <div class="card border-light shadow" style="background: #eee">
             <div class="card-body">
                 <h5 class="card-title fw-bold">
-                    <a href="/leads/" class="link-dark text-decoration-none">Лидов</a>
+                    <a href="{% url 'lead:lead_list' %}" class="link-dark text-decoration-none">Лидов</a>
                 </h5>
                 <i class="fas fa-user-clock float-end"></i>
                 <p class="card-text fw-bold fs-1">{{ leads_count }}</p>

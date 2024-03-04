@@ -4,8 +4,10 @@
 {% block content %}
 <h2 class="fw-bold">Действительно хотите удалить услугу: {{ advertisement.name }}?</h2>
 <div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
-    <div class="col">{{ advertisement.name }}</div>
-    <div class="col">{{ advertisement.description }}</div>
+    <p class="card-text">{{ advertisement.name }}</p>
+    <p class="card-text">{{ advertisement.channel }}</p>
+    <p class="card-text">{{ advertisement.cost }}</p>
+    <p class="card-text">{{ advertisement.product.name }}</p>
     <div class="col">
         <form method="post">
             {% csrf_token %}
@@ -19,7 +21,6 @@
     >К Услуге</a>
 </div>
 <div class="col">
-    <a href="{% url 'advertisement:advertisement_list' %}"  class="btn btn-primary"
-    >К списку услуг</a>
+    <a href="{% url 'advertisement:advertisement_list' %}" class="btn btn-primary">К списку услуг</a>
 </div>
 {% endblock %}
