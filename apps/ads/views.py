@@ -16,6 +16,9 @@ from apps.ads.forms import AdvertisementForm
 from apps.ads.models import Advertisement
 
 
+# TODO Проверить разрешения - везде add_advertisement
+
+
 class AdvertisementView(View):
     queryset = Advertisement.objects.select_related("product")
     context_object_name = "advertisement"
