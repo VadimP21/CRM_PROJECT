@@ -29,7 +29,8 @@ class Lead(Model):
     advertisement = ForeignKey(
         Advertisement, verbose_name="Рекламная кампания", on_delete=DO_NOTHING
     )
-    is_active = BooleanField(default=1, verbose_name="Активен")
+    is_active = BooleanField(default=0, verbose_name="Активен")
+    archived = BooleanField(default=0, verbose_name="В архиве")
 
     def __str__(self):
         return f"Lead {self.first_name!r} {self.last_name!r}"

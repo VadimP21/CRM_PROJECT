@@ -22,6 +22,11 @@ class User(AbstractUser):
     ]
 
     @property
+    def role(self):
+        if hasattr(self, "profile") and self.profile.role:
+            return self.profile.role.name
+
+    @property
     def permissions(self):
         if hasattr(self, "profile") and self.profile.role:
             return self.profile.role.permissions.all()
@@ -32,7 +37,7 @@ class Role(models.Model):
     """Модель Роль для определения роли пользователя в системе"""
 
     name = models.CharField(max_length=50)
-    permissions = models.ManyToManyField("auth.Permission", through="RolePermission")
+    permissions = models.ManyToManyField("auth.Permission")
 
     def __str__(self):
         return f"{self.name}"
@@ -44,14 +49,5 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True)
 
-    # permissions = models.ManyToManyField("auth.Permission", through="Role")
-
     def __str__(self):
         return f"Profile(user={self.user} )"
-
-
-class RolePermission(models.Model):
-    """Модель Разрешение для роли для связи ролей с разрешениями"""
-
-    role = models.ForeignKey(Role, on_delete=models.CASCADE)
-    permission = models.ForeignKey("auth.Permission", on_delete=models.CASCADE)

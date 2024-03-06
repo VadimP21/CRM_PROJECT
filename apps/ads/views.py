@@ -65,7 +65,7 @@ class AdvertisementUpdateView(AdvertisementView, UpdateView):
 class AdvertisementDeleteView(AdvertisementView, DeleteView):
     def form_valid(self, form):
         success_url = self.get_success_url()
-        self.object.is_active = False
+        self.object.archived = True
         self.object.save()
         return HttpResponseRedirect(success_url)
 
@@ -79,7 +79,7 @@ class AdvertisementDeleteView(AdvertisementView, DeleteView):
 
 
 class AdvertisementListView(AdvertisementView, ListView):
-    queryset = Advertisement.objects.filter(is_active=True).only("name")
+    queryset = Advertisement.objects.filter(archived=False).only("name")
     context_object_name = "advertisements"
 
     def test_func(self):

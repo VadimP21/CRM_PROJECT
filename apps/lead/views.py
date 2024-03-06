@@ -57,7 +57,7 @@ class LeadUpdateView(LeadView, UpdateView):
 class LeadDeleteView(LeadView, DeleteView):
     def form_valid(self, form):
         success_url = self.get_success_url()
-        self.object.is_active = False
+        self.object.archived = True
         self.object.save()
         return HttpResponseRedirect(success_url)
 
@@ -68,6 +68,6 @@ class LeadDeleteView(LeadView, DeleteView):
 
 
 class LeadListView(LeadView, ListView):
-    queryset = Lead.objects.filter(is_active=True).only("last_name", "first_name")
+    queryset = Lead.objects.filter(archived=False).only("last_name", "first_name")
 
     context_object_name = "leads"

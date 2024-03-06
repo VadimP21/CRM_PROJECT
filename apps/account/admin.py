@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
-from apps.account.models import Profile, Role, RolePermission
+from apps.account.models import Profile, Role
 
 User = get_user_model()
 
@@ -13,16 +13,20 @@ class UserProfileInLine(admin.TabularInline):
     model = Profile
 
 
-class RolePermissions(admin.TabularInline):
-    model = RolePermission
-
-
-class ProfilePermissions(admin.TabularInline):
-    model = Role.permissions.through
+class UserNamesInline(admin.TabularInline):
+    model = Profile
 
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
+    list_display = (
+        "username",
+        "email",
+        "first_name",
+        "last_name",
+        "role",
+        "is_staff",
+    )
     inlines = [
         UserProfileInLine,
     ]
@@ -37,28 +41,8 @@ class UserAdmin(UserAdmin):
     ]
 
 
-@admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
-
-    list_display = ("pk", "user", "role")
-    ordering = (
-        "pk",
-        "user",
-        "role",
-    )
-    search_fields = "role", "user"
-
-    def get_queryset(self, request):
-        return Profile.objects.select_related("user").select_related("role")
-
-
 @admin.register(Role)
 class RoleAdmin(admin.ModelAdmin):
-    inlines = [RolePermissions]
+    inlines = [UserNamesInline]
 
     list_display = ("name",)
-
-
-@admin.register(RolePermission)
-class RolePermissionAdmin(admin.ModelAdmin):
-    list_display = ("pk", "role", "permission")

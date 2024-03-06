@@ -79,7 +79,7 @@ class ProductDeleteView(UserPassesTestMixin, ProductView, DeleteView):
 
     def form_valid(self, form):
         success_url = self.get_success_url()
-        self.object.is_active = False
+        self.object.archived = True
         self.object.save()
         return HttpResponseRedirect(success_url)
 
@@ -93,7 +93,7 @@ class ProductDeleteView(UserPassesTestMixin, ProductView, DeleteView):
 
 
 class ProductListView(UserPassesTestMixin, ProductView, ListView):
-    queryset = Product.objects.filter(is_active=True)
+    queryset = Product.objects.filter(archived=False)
     context_object_name = "products"
 
     def test_func(self):
