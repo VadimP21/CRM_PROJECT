@@ -1,4 +1,4 @@
-"""Точки входа для приложения ads"""
+"""Точки входа для приложения contract"""
 
 from django.urls import path
 

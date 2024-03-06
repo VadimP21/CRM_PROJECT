@@ -1,4 +1,4 @@
-"""Модуль контроллер для приложения ads"""
+"""Модуль контроллер для приложения contract"""
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render

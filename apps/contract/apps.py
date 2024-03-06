@@ -1,3 +1,5 @@
+"""Конфигурация приложения contract"""
+
 from django.apps import AppConfig
 
 
